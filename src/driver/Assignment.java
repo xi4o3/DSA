@@ -1251,7 +1251,7 @@ public class Assignment {
                 String NewName = sc.nextLine();
                 F.setFoodName(NewName);
                 for(int i = 1 ; i < food.getSize() ; i++){
-                    if(food.getAtPosition(i).getRestaurant().getRes_name().equals(F.getRestaurant().getRes_name())){
+                    if(food.getAtPosition(i).getRestaurant().getRes_name().equals(F.getRestaurant().getRes_name())&& food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
                         food.update(i, F);
                     }
                 }
@@ -1266,7 +1266,7 @@ public class Assignment {
                 double NewPrice = sc.nextDouble();
                 F.setPrice(NewPrice);
                 for(int i = 1 ; i < food.getSize() ; i++){
-                    if(food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
+                    if(food.getAtPosition(i).getRestaurant().getRes_name().equals(F.getRestaurant().getRes_name())&& food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
                         food.update(i, F);
                     }
                 }
@@ -1283,7 +1283,7 @@ public class Assignment {
                 status = status.toUpperCase();
                 F.setFoodAVA(status);
                 for(int i = 1 ; i < food.getSize() ; i++){
-                    if(food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
+                    if(food.getAtPosition(i).getRestaurant().getRes_name().equals(F.getRestaurant().getRes_name())&& food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
                         food.update(i, F);
                     }
                 }
@@ -1300,7 +1300,7 @@ public class Assignment {
                 promotion = promotion.toUpperCase();
                 F.setPromotion(promotion);
                 for(int i = 1 ; i < food.getSize() ; i++){
-                    if(food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
+                    if(food.getAtPosition(i).getRestaurant().getRes_name().equals(F.getRestaurant().getRes_name())&& food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
                         food.update(i, F);
                     }
                 }
@@ -1374,6 +1374,11 @@ public class Assignment {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         Calendar c = Calendar.getInstance();
+        int totalRes = 0;
+        for(int i =1;i<=affiliate.getSize();i++)
+        {
+            totalRes = affiliate.getSize();
+        }
         
         System.out.printf("\n%20sTotal Menu Item For Each Restaurant Report\n\n"," ");
         System.out.printf("Date: %s\t\t\t\t\t\t\tTime: %s\n\n",dateFormat.format(c.getTime()),timeFormat.format(c.getTime()));
@@ -1382,6 +1387,7 @@ public class Assignment {
         System.out.printf("----------------------------------------------------------------------------------------\n");
         SR.display();
         System.out.printf("----------------------------------------------------------------------------------------\n");
+        System.out.printf("\t\t\t\tTotal Restaurant : %d\n\n\n", totalRes);
     }
     
     //**************************************************************************************************************************

@@ -98,18 +98,33 @@ public class Food implements Comparable<Food>{
     }
     
     public int compareTo(Food food) {
-        if(Category.compareTo(food.getCategory()) < 0){
+        if(Category.compareTo(food.getCategory()) < 0)
+        {
             return 1;
         }
-        else if(Category.compareTo(food.getCategory()) == 0){
-            if(Price > food.getPrice()){
+        else if(Category.compareTo(food.getCategory()) == 0)
+        {
+            if(promotion.compareTo(food.getPromotion()) > 0)
+            {
+                return 1;
+            }
+            else if(promotion.compareTo(food.getPromotion()) == 0)
+            {
+                 if(Price > food.getPrice())
+                {
+                    return -1;
+                }
+                else if(Price == food.getPrice())
+                {
+                     return 1;  
+                }   
+                else
+                    return 1;
+            }
+            else
+            {
                 return -1;
             }
-            else if(Price == food.getPrice()){
-                 return 1;  
-            }   
-            else
-                return 1;
         }
         else
             return -1;
