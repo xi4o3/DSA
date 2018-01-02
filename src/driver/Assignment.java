@@ -210,6 +210,7 @@ public class Assignment {
                 }
                 case "0": {
                     flag = false;
+                    System.exit(0);
                     break;
                 }
                 default: {
@@ -317,6 +318,7 @@ public class Assignment {
             }
             case "5": {
                 updateDeliveryStatus();
+                deliverymanMenu();
                 break;
             }
             case "6": {
@@ -372,6 +374,7 @@ public class Assignment {
                         dm.setTotalDeliveries(dm.getTotalDeliveries() + 1);
 //                        dm.setRating(randomRating);
                         dm.setRating((dm.getRating() + randomRating) / dm.getTotalDeliveries());
+                        dm.setWorkingStatus("Available");
                         manList.remove(i);
                         manList.add(dm);
                      }
@@ -1248,7 +1251,7 @@ public class Assignment {
                 String NewName = sc.nextLine();
                 F.setFoodName(NewName);
                 for(int i = 1 ; i < food.getSize() ; i++){
-                    if(food.getAtPosition(i).getFoodID().equals(F.getFoodID())){
+                    if(food.getAtPosition(i).getRestaurant().getRes_name().equals(F.getRestaurant().getRes_name())){
                         food.update(i, F);
                     }
                 }
